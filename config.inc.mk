@@ -10,3 +10,10 @@ BUILD_TRIPLET=$(TARGET_TRIPLET)
 # The root directory of the target system
 SYSROOT=/
 
+# The directory for the component database
+COMPDBDIR=/var/compdb
+
+.PHONY: show-var
+show-var:
+	@echo $($(VARNAME))
+
