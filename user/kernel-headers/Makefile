@@ -18,6 +18,11 @@ install: src
 	cp -ru src $(SYSROOT)/usr/include
 
 clean:
+	@echo 'kernel-headers has no build directory to cleanup from. To do a'
+	@echo 'full clean (this will remove src so it can be regenerated next'
+	@echo 'time make is run), run `make full-clean`'
+
+full-clean:
 	rm -rf src
 
 include ../../config.inc.mk
