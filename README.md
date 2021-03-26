@@ -32,4 +32,5 @@ The following top level directories exist:
   system's user space.
 * **kern**: contains the source code and build directory for the Linux
   kernel.
+* **linux**: symlink to kern/src for compatibility purposes.
 
