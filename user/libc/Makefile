@@ -12,7 +12,7 @@ bin: build/Makefile
 install: bin
 	cd build && $(MAKE) install DESTDIR=$(SYSROOT)
 
-build/Makefile: build install-comp-kernel-headers
+build/Makefile: | build install-kernel-headers
 	cd build && ../src/configure $(CONFIGURE_ARGS)
 
 build:
