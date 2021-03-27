@@ -1,7 +1,7 @@
 # Include file for general user space component stuff.
 
-.PHONY: install-comp-%
-install-comp-%:
+.PHONY: install-%
+install-%:
 	cd ../$* && $(MAKE) install
 
 .PHONY: show-version
