@@ -1,5 +1,6 @@
 # The components in this directory to build (by default all of them)
 COMPONENTS= \
+	skel \
 	kernel-headers \
 	libc
 
