@@ -24,6 +24,7 @@ directory to execute the speficied action for all components.
 * install: install the component to the system.
 * clean: clean up from a previous build, forcing a full rebuild of the
   component next time `make build` is run.
+* show-version: print the version of a component.
 
 Influential Make Variables
 --------------------------
