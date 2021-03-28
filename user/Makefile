@@ -2,7 +2,8 @@
 COMPONENTS= \
 	skel \
 	kernel-headers \
-	libc
+	libc \
+	utils
 
 .PHONY: all install clean
 all: $(addprefix bin-,$(COMPONENTS))

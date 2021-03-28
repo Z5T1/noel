@@ -6,6 +6,7 @@ bin:
 	@echo Nothing to build for skel.
 
 install:
+# Basic Directory Skeleton
 	install -d -m 755 -o 0 -g 0 $(SYSROOT)/bin
 	install -d -m 755 -o 0 -g 0 $(SYSROOT)/boot
 	install -d -m 755 -o 0 -g 0 $(SYSROOT)/dev
@@ -99,6 +100,10 @@ endif
 	install -d -m 1755 -o 0 -g 0 $(SYSROOT)/var/tmp
 	ln -sf /run $(SYSROOT)/var/run
 	ln -sf /run/lock $(SYSROOT)/var/lock
+
+# Stuff Supporting BusyBox
+	install -dm 755 $(PKG_ROOT)/var/spool/cron
+	install -dm 1730 $(PKG_ROOT)/var/spool/cron/crontabs
 
 clean:
 	@echo Nothing to clean for skel.
