@@ -22,7 +22,8 @@ EXTERNAL_COMPONENTS= \
 	curses
 
 .PHONY: all install clean
-all: $(addprefix bin-,$(COMPONENTS))
+all:
+	$(foreach tgt,$(COMPONENTS), $(MAKE) bin-$(tgt) &&) echo Done
 
 install: $(addprefix install-,$(COMPONENTS))
 

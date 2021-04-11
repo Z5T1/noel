@@ -1,6 +1,6 @@
 KERNSRC=../../kern/src
 
-.PHONY: bin install clean
+.PHONY: bin install tmproot-install clean
 
 bin: src
 
@@ -16,6 +16,10 @@ src:
 install: src
 	install -d $(SYSROOT)/usr
 	cp -ru src $(SYSROOT)/usr/include
+
+tmproot-install: src
+	install -d $(TMPROOT)/usr
+	cp -ru src $(TMPROOT)/usr/include
 
 clean:
 	@echo 'kernel-headers has no build directory to cleanup from. To do a'

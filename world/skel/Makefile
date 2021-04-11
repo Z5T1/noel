@@ -1,6 +1,7 @@
-.PHONY: bin install clean
+.PHONY: bin install tmproot-install clean
 
 include ../../config.inc.mk
+include ../component.inc.mk
 
 bin:
 	@echo Nothing to build for skel.
@@ -105,7 +106,17 @@ endif
 	install -dm 755 $(SYSROOT)/var/spool/cron
 	install -dm 1730 $(SYSROOT)/var/spool/cron/crontabs
 
+# For the temporary root, we can use a much more minimalistic version.
+tmproot-install: $(TMPROOT)
+	mkdir -p $(TMPROOT)/lib$(ARCH_LIBDIR_SUFFIX)
+ifneq ($(ARCH_LIBDIR_SUFFIX),)
+	ln -sf lib$(ARCH_LIBDIR_SUFFIX) $(TMPROOT)/lib
+endif
+	mkdir -p $(TMPROOT)/usr/lib$(ARCH_LIBDIR_SUFFIX)
+ifneq ($(ARCH_LIBDIR_SUFFIX),)
+	ln -sf lib$(ARCH_LIBDIR_SUFFIX) $(TMPROOT)/usr/lib
+endif
+
 clean:
 	@echo Nothing to clean for skel.
-	make clean
 

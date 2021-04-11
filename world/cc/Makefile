@@ -3,7 +3,7 @@ CONFIGURE_ARGS+= \
 	--prefix=/usr \
 	--host=$(TARGET_TRIPLET) \
         --build=$(BUILD) \
-        --with-build-sysroot=$(SYSROOT) \
+        --with-build-sysroot=$(TMPROOT) \
 	--with-sysroot=/ \
 	--disable-bootstrap \
 	--disable-multilib \
@@ -26,10 +26,10 @@ export	CC_FOR_TARGET CXX_FOR_TARGET LD_FOR_TARGET AR_FOR_TARGET \
 bin: build/Makefile
 	cd build && $(MAKE)
 
-install: bin
+install: bin install-libc
 	cd build && $(MAKE) install DESTDIR=$(SYSROOT)
 
-build/Makefile: | build install-libc
+build/Makefile: | build tmproot-install-libc
 	cd build && ../src/configure $(CONFIGURE_ARGS)
 
 build:

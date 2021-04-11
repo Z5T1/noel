@@ -1,6 +1,5 @@
 CONFIGURE_ARGS+= \
 	--prefix=/usr \
-	--build=$(BUILD_TRIPLET) \
 	--host=$(TARGET_TRIPLET) \
 	--with-shared \
 	--without-debug \
@@ -8,17 +7,17 @@ CONFIGURE_ARGS+= \
 	--enable-pc-files \
 	--enable-widec \
 	--with-build-cc=gcc \
-        --with-sysroot=$(SYSROOT)
+        --with-sysroot=$(TMPROOT)
 
 .PHONY: bin install clean
 
 bin: build/Makefile
 	cd build && $(MAKE)
 
-install: bin
+install: bin install-libc
 	cd build && $(MAKE) install DESTDIR=$(SYSROOT)
 
-build/Makefile: | build install-libc
+build/Makefile: | build tmproot-install-libc
 	cd build && ../src/configure $(CONFIGURE_ARGS)
 
 build:

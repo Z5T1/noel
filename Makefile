@@ -18,7 +18,7 @@
 .PHONY: universe worlds kernels \
 	buildworld installworld world \
 	buildkernel installkernel kernel \
-	toolchain
+	toolchain clean
 
 universe:
 worlds:
@@ -41,4 +41,12 @@ installkernel:
 kernel: | buildkernel installkernel
 
 toolchains:
+
+clean:
+	$(MAKE) -C world clean
+	$(MAKE) -C kernel clean
+	rm -rf build stage
+
+build stage:
+	mkdir $@
 

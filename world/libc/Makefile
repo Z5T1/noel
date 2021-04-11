@@ -2,9 +2,9 @@ CONFIGURE_ARGS+= \
 	--prefix=/usr \
 	--host=$(TARGET_TRIPLET) \
         --build=$(BUILD_TRIPLET) \
-        --with-headers=$(SYSROOT)/usr/include
+        --with-headers=$(TMPROOT)/usr/include
 
-.PHONY: bin install clean
+.PHONY: bin install tmproot-install clean
 
 bin: build/Makefile
 	cd build && $(MAKE)
@@ -12,7 +12,10 @@ bin: build/Makefile
 install: bin
 	cd build && $(MAKE) install DESTDIR=$(SYSROOT)
 
-build/Makefile: | build install-kernel-headers
+tmproot-install: bin
+	cd build && $(MAKE) install DESTDIR=$(TMPROOT)
+
+build/Makefile: | build tmproot-install-skel tmproot-install-kernel-headers
 	cd build && ../src/configure $(CONFIGURE_ARGS)
 
 build:

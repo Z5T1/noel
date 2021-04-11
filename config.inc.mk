@@ -1,3 +1,6 @@
+ifndef _INC_CONFIG
+_INC_CONFIG=y
+
 # The architecture to build the target OS for
 OS_ARCH=x86_64
 
@@ -24,4 +27,6 @@ export CFLAGS CXXFLAGS
 .PHONY: show-var
 show-var:
 	@echo $($(VARNAME))
+
+endif
 
