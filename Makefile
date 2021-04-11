@@ -25,18 +25,18 @@ worlds:
 kernels:
 
 buildworld:
-	$(MAKE) -C user
+	$(MAKE) -C world
 
 installworld:
-	$(MAKE) -C user install
+	$(MAKE) -C world install
 
 world: | buildworld installworld
 
 buildkernel:
-	$(MAKE) -C kern
+	$(MAKE) -C kernel
 
 installkernel:
-	$(MAKE) -C kern install
+	$(MAKE) -C kernel install
 
 kernel: | buildkernel installkernel
 
