@@ -10,6 +10,17 @@ COMPONENTS= \
 	ssl \
 	curses
 
+# The external (third party) components
+EXTERNAL_COMPONENTS= \
+	kernel-headers \
+	libc \
+	utils \
+	binutils \
+	cc \
+	zlib \
+	ssl \
+	curses
+
 .PHONY: all install clean
 all: $(addprefix bin-,$(COMPONENTS))
 
@@ -25,4 +36,10 @@ install-%:
 
 clean-%:
 	$(MAKE) -C $* clean
+
+show-version-%:
+	@echo -n "$* "
+	@$(MAKE) --no-print-directory -C $* show-version
+
+show-versions: $(addprefix show-version-,$(EXTERNAL_COMPONENTS))
 

@@ -26,6 +26,10 @@ directory to execute the speficied action for all components.
   component next time `make build` is run.
 * show-version: print the version of a component.
 
+The following make targets can be used in the world directory.
+
+* show-versions: print the version of each component.
+
 Influential Make Variables
 --------------------------
 * SYSROOT: the root directory of the target system's filesystem. Defaults to /.
