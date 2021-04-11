@@ -30,7 +30,7 @@ Structure
 The following top level directories exist:
 * **user**: contains the source code and build directories for the base
   system's user space.
-* **kern**: contains the source code and build directory for the Linux
+* **kernel**: contains the source code and build directory for the Linux
   kernel.
 * **linux**: symlink to kern/src for compatibility purposes.
 
