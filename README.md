@@ -15,7 +15,7 @@ packages:
 * GNU Binutils 2.36
 * GCC 10.2.0
 * GNU Libc 2.33
-* Zlib ???
+* Zlib 1.2.11
 * Ncurses ???
 * OpenSSL 1.1.1
 * Linux 5.10

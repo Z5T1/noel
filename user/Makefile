@@ -3,7 +3,12 @@ COMPONENTS= \
 	skel \
 	kernel-headers \
 	libc \
-	utils
+	utils \
+	binutils \
+	cc \
+	zlib \
+	ssl \
+	curses
 
 .PHONY: all install clean
 all: $(addprefix bin-,$(COMPONENTS))

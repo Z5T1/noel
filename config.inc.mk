@@ -16,6 +16,11 @@ SYSROOT=/
 # The directory for the component database
 COMPDBDIR=/var/compdb
 
+# Default compiler flags
+CFLAGS+=	-O2
+CXXFLAGS+=	-O2
+export CFLAGS CXXFLAGS
+
 .PHONY: show-var
 show-var:
 	@echo $($(VARNAME))

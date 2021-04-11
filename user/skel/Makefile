@@ -102,8 +102,8 @@ endif
 	ln -sf /run/lock $(SYSROOT)/var/lock
 
 # Stuff Supporting BusyBox
-	install -dm 755 $(PKG_ROOT)/var/spool/cron
-	install -dm 1730 $(PKG_ROOT)/var/spool/cron/crontabs
+	install -dm 755 $(SYSROOT)/var/spool/cron
+	install -dm 1730 $(SYSROOT)/var/spool/cron/crontabs
 
 clean:
 	@echo Nothing to clean for skel.
