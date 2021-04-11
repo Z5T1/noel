@@ -28,7 +28,7 @@ same third party package system that NetBSD uses (hence the distribution name).
 Structure
 ---------
 The following top level directories exist:
-* **user**: contains the source code and build directories for the base
+* **world**: contains the source code and build directories for the base
   system's user space.
 * **kernel**: contains the source code and build directory for the Linux
   kernel.
