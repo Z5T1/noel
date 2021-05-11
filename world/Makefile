@@ -8,7 +8,8 @@ COMPONENTS= \
 	cc \
 	zlib \
 	ssl \
-	curses
+	curses \
+	native
 
 # The external (third party) components
 EXTERNAL_COMPONENTS= \
