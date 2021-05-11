@@ -28,6 +28,8 @@ bin: build/Makefile
 
 install: bin install-libc
 	cd build && $(MAKE) install DESTDIR=$(SYSROOT)
+	cd $(SYSROOT)/usr/bin && ln -s gcc cc
+	cd $(SYSROOT)/lib && ln -s ../usr/bin/cpp
 
 build/Makefile: | build tmproot-install-libc
 	cd build && ../src/configure $(CONFIGURE_ARGS)
