@@ -11,7 +11,7 @@ third party packages. It is structrued as follows:
 ### The Base System
 The base system is a minimalistic embedded Linux system using the following
 packages:
-* BusyBox 1.32.1
+* BusyBox 1.33.1
 * GNU Binutils 2.36
 * GCC 10.2.0
 * GNU Libc 2.33
